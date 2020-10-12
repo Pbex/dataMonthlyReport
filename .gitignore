@@ -1,0 +1,10 @@
+data/
+dataDict/
+graph/
+report/
+venv/
+.idea/
+
+mallScript.sql
+travelAppScript.sql
+电子商城数据需求表.xlsx
