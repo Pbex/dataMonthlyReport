@@ -1,10 +1,20 @@
-# last modified by Pb in 2020.9.10
-# bug: chinese string is not allow to show in pyplot graph
+# last modified by Pb in 2020.9.12
+# bugfix: chinese string is not allow to show in pyplot graph
 
 import openpyxl as xl
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.font_manager as fm
+from pylab import mpl
 
+# used for Chinese string display, pyplot not support Chinese decode in default
+# font = {'family': 'SimHei', "size": 24}
+# matplotlib.rc('font', **font)
+# my_font_title = fm.FontProperties(family='SimHei', size=24)
+# my_font_x_label = fm.FontProperties(family='SimHei', size=20)
+
+# used for Chinese string display, pyplot not support Chinese decode in default
+mpl.rcParams['font.sans-serif'] = ['SimHei']  # setting all font to use Chinese
 
 # define the struct that used for drawing graph
 class GraphClass:
@@ -41,11 +51,5 @@ def readDataFromXlsx():
 
 
 readDataFromXlsx()
-# x = np.arange(0, 5, 0.1)
-# y = np.sin(x)
-# plt.plot(x, y)
-# # every figure should use a figure to split
-# plt.figure()
-
 # end up with pyplot.show() function to show tables
 plt.show()
